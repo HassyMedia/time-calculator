@@ -18,3 +18,15 @@ def add_time(start, duration, starting_day=None):
     if end_minute >= 60:
         end_hour += end_minute // 60
         end_minute = end_minute % 60
+
+    # Calculating the number of days passed and adjusting the hour
+    days_later = end_hour // 24
+    end_hour = end_hour % 24
+
+    # Converting back to 12-hour format and determining AM/PM
+    period = "AM" if end_hour < 12 else "PM"
+    end_hour = end_hour if 1 <= end_hour <= 12 else end_hour - 12
+    end_hour = 12 if end_hour == 0 else end_hour
+
+    # Formatting the time string
+    end_time = f"{end_hour}:{end_minute:02d} {period}"
