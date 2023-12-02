@@ -30,3 +30,11 @@ def add_time(start, duration, starting_day=None):
 
     # Formatting the time string
     end_time = f"{end_hour}:{end_minute:02d} {period}"
+
+    # Adding the day of the week if provided
+    if starting_day:
+        day_index = days_of_week.index(starting_day.capitalize())
+        new_day_index = (day_index + days_later) % 7
+        new_day = days_of_week[new_day_index]
+        end_time += f", {new_day}"
+
