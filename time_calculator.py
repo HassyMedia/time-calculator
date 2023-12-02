@@ -38,3 +38,11 @@ def add_time(start, duration, starting_day=None):
         new_day = days_of_week[new_day_index]
         end_time += f", {new_day}"
 
+    # Adding information about the number of days later
+    if days_later == 1:
+        end_time += " (next day)"
+    elif days_later > 1:
+        end_time += f" ({days_later} days later)"
+
+    return end_time
+
